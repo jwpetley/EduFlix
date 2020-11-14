@@ -16,7 +16,7 @@ To get the flask server running follow the following commands after cloning:
 
 ```
 . venv/bin/activate
-export FLASK_APP = EduFlix-app
+export FLASK_APP=EduFlixApp
 export FLASK_ENV=development
 flask run
 ```
