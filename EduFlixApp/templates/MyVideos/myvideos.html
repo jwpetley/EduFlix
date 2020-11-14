@@ -14,6 +14,7 @@
             <h1>{{ video['title'] }}</h1>
             <div class="about">Uploaded by {{ g.user['username'] }} on {{ video['created'].strftime('%Y-%m-%d') }}</div>
             <div class="about">{{ video['s3link'] }}</div>
+            <a href="/myvideos/watch?s3link={{video['s3link']}}">Watch Here</a>
           </div>
         </header>
       </article>
