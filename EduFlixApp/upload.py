@@ -19,8 +19,9 @@ def upload():
         S3upload.upload_file_object(file, user_id)
         #Here we try the upload and add some if statements in case they fail
 
+        username = g.user['username']
 
-        s3link = 'https://eduflixvid.s3.amazonaws.com/%s/%s'%(user_id, file.filename)
+        s3link = 'https://eduflixvid.s3.amazonaws.com/%s/%s.mp4'%(username, title)
 
         db = get_db()
         error = None
