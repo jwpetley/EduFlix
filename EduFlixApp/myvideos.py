@@ -37,3 +37,7 @@ def myvideos():
     flash(error)
 
     return render_template('MyVideos/myvideos.html', videos=videos)
+
+@bp.route('/watch/<video_id>')
+def watch_video(video_id):
+    return render_template('MyVideos/watch.html')

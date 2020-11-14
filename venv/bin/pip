@@ -1,4 +1,5 @@
-#!/Users/James/Documents/EduFlix/venv/bin/python3
+#!/Users/charliethomas/Dev/EduFlix/venv/bin/python
+
 # -*- coding: utf-8 -*-
 import re
 import sys
