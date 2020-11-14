@@ -16,7 +16,7 @@ def upload():
         print(request.files.keys())
         file = request.files['file']
 
-        S3upload.upload_file_object(file, user_id)
+        S3upload.upload_file_object(file, user_id, title)
         #Here we try the upload and add some if statements in case they fail
 
         username = g.user['username']
