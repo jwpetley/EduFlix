@@ -1,5 +1,3 @@
-access_key='AKIA6DKSR4M556OULTXU'
-secret_key='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'
 import os
 import boto3
 import logging
@@ -12,6 +10,8 @@ def upload_file(file_name,file_path,user_id):
     :user_id: Create or use a current file that is specific to a user
     :return: True if file was uploaded, else False
     """
+    access_key='AKIA6DKSR4M556OULTXU'
+    secret_key='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'
 
     object_name = str(user_id) + '/'+ str(file_name)
     object_upload=str(file_path) + str(file_name)
@@ -26,7 +26,9 @@ def upload_file(file_name,file_path,user_id):
         return False
     return True
 
-file='CuteCat1.mp4'
-path='D:'
-Uploaded=upload_file(file,path,'Eve')
-print(Uploaded)
+if __name__ == "__main__":
+
+    file='CuteCat1.mp4'
+    path='D:'
+    Uploaded=upload_file(file,path,'Eve')
+    print(Uploaded)

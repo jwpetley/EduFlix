@@ -2,6 +2,8 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 
+from . import S3upload
+
 bp = Blueprint('upload', __name__, url_prefix='/upload')
 
 @bp.route('/')
@@ -10,8 +12,9 @@ def upload():
     if request.method == 'POST':
         title = request.form['title']
         #Somehow we get S3 link run some functions to upload and retrieve S3 link
-
+        file = request.form['file']
         s3link = ''
+        #upload_file(file.filename,file_path,user_id)
         db = get_db()
         error = None
 
