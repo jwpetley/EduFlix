@@ -3,4 +3,5 @@ venv/
 .DS_Store
 instance/
 streaming/node_modules
+EduFlixApp/.idea
 *.mp4
