@@ -1,0 +1,4 @@
+include EduFlixApp/schema.sql
+graft EduFlixApp/static
+graft EduFlixApp/templates
+global-exclude *.pyc
