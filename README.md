@@ -8,6 +8,6 @@ In the current world students are limited by their options to receive educationa
 
 Here we provide a tool to allow educators or students to upload video content. This can then be viewed as a group in a fashion similar to a "Netflix Party". Students can pause and play as they like wit synchronous playback. They can speak freely among friends and engage with the content. Optionally lectures with the premium setup can add interactive elements to their videos. This will work much better than in a live zoom call as students will feel happier to discuss and respond to questions amongst their peers and without the eyes and ears of the educator upon them.
 
-## Tech Three
+## Tech Tree
 
-We implement a Python backend and user interface with JavaScript for this app. We will use AWS storage for video upload and retrieval. 
+We implement a Python backend and user interface with JavaScript for this app. We will use AWS storage for video upload and retrieval.
