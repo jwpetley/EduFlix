@@ -13,8 +13,13 @@ def upload():
         title = request.form['title']
         #Somehow we get S3 link run some functions to upload and retrieve S3 link
         file = request.form['file']
-        s3link = ''
+
         #upload_file(file.filename,file_path,user_id)
+        #Here we try the upload and add some if statements in case they fail
+
+
+        s3link = 'https://eduflixvid.s3.amazonaws.com/%s'%(file.filename)
+
         db = get_db()
         error = None
 
