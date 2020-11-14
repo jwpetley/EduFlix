@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}My Videos{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="s3link">S3 Video Link</label>
+    <input name="s3link" id="s3link" required>
+  </form>
+
+  {% for video in videos %}
+      <article class="post">
+        <header>
+          <div>
+            <h1>{{ video['s3link'] }}</h1>
+            <div class="about">owned by {{ video['owner_id'] }} on {{ video['created'].strftime('%Y-%m-%d') }}</div>
+          </div>
+        </header>
+      </article>
+    {% endfor %}
+
+
+
+{% endblock %}
