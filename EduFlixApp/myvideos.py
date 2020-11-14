@@ -12,7 +12,7 @@ def myvideos():
     error = None
     db = get_db()
     videos = db.execute(
-        'SELECT p.id, s3link, created, owner_id'
+        'SELECT p.id, s3link, created, owner_id, title'
         ' FROM video p JOIN user u ON p.owner_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
