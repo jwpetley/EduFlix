@@ -29,7 +29,7 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route('/')
     def index():
-        return render_template("index.html")
+        return render_template("base.html")
 
 
     from . import db
