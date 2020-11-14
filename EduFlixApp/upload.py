@@ -10,13 +10,14 @@ bp = Blueprint('upload', __name__, url_prefix='/upload')
 @bp.route('/', methods=['GET', 'POST'])
 def upload():
     user_id = session.get('user_id')
+    username = g.user['username']
     if request.method == 'POST':
         title = request.form['title']
         #Somehow we get S3 link run some functions to upload and retrieve S3 link
         print(request.files.keys())
         file = request.files['file']
 
-        S3upload.upload_file_object(file, user_id, title)
+        S3upload.upload_file_object(file, username, title)
         #Here we try the upload and add some if statements in case they fail
 
         username = g.user['username']

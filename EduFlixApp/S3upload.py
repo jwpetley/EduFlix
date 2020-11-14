@@ -43,7 +43,7 @@ def upload_file_object(file, username, title):
     object_name = str(username) + '/'+ str(title) + ".mp4"
     #object_upload=str(file_path) + str(file_name)
     bucket_name='eduflixvid'
-
+    print(object_name)
     # Upload the file
     s3_client = boto3.client('s3')
     try:
@@ -51,11 +51,18 @@ def upload_file_object(file, username, title):
     except ClientError as e:
         logging.error(e)
         return False
+    print("Good Upload")
     return True
 
 if __name__ == "__main__":
 
-    file='myvideos.py'
-    path=''
-    Uploaded=upload_file_from_path(file,path,'Eve')
-    print(Uploaded)
+    #file='myvideos.py'
+    #path=''
+    #Uploaded=upload_file_from_path(file,path,'Eve')
+    #print(Uploaded)
+
+    s3_client = boto3.client('s3')
+    s3 = boto3.resource('s3')
+    my_bucket = s3.Bucket('eduflixvid')
+    for my_bucket_object in my_bucket.objects.all():
+        print(my_bucket_object)
