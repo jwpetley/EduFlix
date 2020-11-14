@@ -5,7 +5,6 @@ click==7.1.2
 colorama==0.4.3
 docutils==0.15.2
 dominate==2.6.0
--e git+https://github.com/jwpetley/EduFlix@0417f34091d0e4b2982d2249e3b836b1c125c051#egg=EduFlixApp
 Flask==1.1.2
 Flask-Bootstrap==3.3.7.1
 flaskr==1.0.0
