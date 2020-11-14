@@ -1,4 +1,4 @@
-#!/Users/James/Documents/EduFlix/venv/bin/python3
+#!/Users/charliethomas/Dev/EduFlix/venv/bin/python
 
 # $Id: rst2xml.py 4564 2006-05-21 20:44:42Z wiemann $
 # Author: David Goodger <goodger@python.org>

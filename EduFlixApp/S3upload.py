@@ -37,16 +37,13 @@ def upload_file_object(file, user_id):
     :user_id: Create or use a current file that is specific to a user
     :return: True if file was uploaded, else False
     """
-    access_key='AKIA6DKSR4M556OULTXU'
-    secret_key='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'
-
     object_name = str(user_id) + '/'+ str(file.filename)
-    #object_upload=str(file_path) + str(file_name)
     bucket_name='eduflixvid'
 
     # Upload the file
     s3_client = boto3.client('s3')
     try:
+        print('using publc read')
         response = s3_client.upload_fileobj(file, bucket_name, object_name, ExtraArgs={'ACL':'public-read'})
     except ClientError as e:
         logging.error(e)

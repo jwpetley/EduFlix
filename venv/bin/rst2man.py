@@ -1,4 +1,4 @@
-#!/Users/James/Documents/EduFlix/venv/bin/python3
+#!/Users/charliethomas/Dev/EduFlix/venv/bin/python
 
 # Author: 
 # Contact: grubert@users.sf.net
