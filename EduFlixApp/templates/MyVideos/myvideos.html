@@ -5,11 +5,7 @@
 {% endblock %}
 
 {% block content %}
-  <form method="post">
-    <label for="s3link">S3 Video Link</label>
-    <input name="s3link" id="s3link" required>
-  </form>
-
+  
   {% for video in videos %}
   {% if g.user['id'] == video['owner_id'] %}
       <article class="post">
