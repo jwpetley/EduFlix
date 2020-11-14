@@ -1,1 +1,4 @@
 *.mp4
+.DS_Store
+venv2/
+EduFlixApp/__pycache__/
