@@ -30,7 +30,7 @@ def upload_file_from_path(file_name,file_path,user_id):
         return False
     return True
 
-def upload_file_object(file, user_id):
+def upload_file_object(file, username, title):
     """Upload a file to an S3 bucket
 
     :param file_name: File to upload
@@ -40,7 +40,7 @@ def upload_file_object(file, user_id):
     access_key='AKIA6DKSR4M556OULTXU'
     secret_key='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'
 
-    object_name = str(user_id) + '/'+ str(file.filename)
+    object_name = str(username) + '/'+ str(title) + ".mp4"
     #object_upload=str(file_path) + str(file_name)
     bucket_name='eduflixvid'
 

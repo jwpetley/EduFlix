@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block content %}
-  
+
   {% for video in videos %}
   {% if g.user['id'] == video['owner_id'] %}
       <article class="post">
         <header>
           <div>
             <h1>{{ video['title'] }}</h1>
-            <div class="about">owned by {{ video['owner_id'] }} on {{ video['created'].strftime('%Y-%m-%d') }}</div>
+            <div class="about">Uploaded by {{ g.user['username'] }} on {{ video['created'].strftime('%Y-%m-%d') }}</div>
             <div class="about">{{ video['s3link'] }}</div>
           </div>
         </header>
