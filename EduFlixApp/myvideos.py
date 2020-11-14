@@ -18,22 +18,6 @@ def myvideos():
     ).fetchall()
 
 
-    if request.method == 'POST':
-        s3link = request.form['s3link']
-        db = get_db()
-
-
-        if db.execute(
-            'SELECT id FROM video WHERE s3link = ?', (s3link,)
-        ).fetchone() is not None:
-            error = 'Video {} is already uploaded.'.format(s3link)
-
-        if error is None:
-
-            db.execute(
-                'INSERT INTO video (s3link, owner_id) VALUES (?, ?)',(s3link, user_id))
-            db.commit()
-
-    flash(error)
+    #flash(error)
 
     return render_template('MyVideos/myvideos.html', videos=videos)

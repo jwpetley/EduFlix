@@ -1,4 +1,6 @@
 <!doctype html>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@386&display=swap" rel="stylesheet">
 <title>{% block title %}{% endblock %} - EduFlix - Look at me!</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
@@ -15,6 +17,7 @@
     {% endif %}
   </ul>
 </nav>
+
 <section class="content">
   <header>
     {% block header %}{% endblock %}
