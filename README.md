@@ -11,3 +11,12 @@ Here we provide a tool to allow educators or students to upload video content. T
 ## Tech Tree
 
 We implement a Python backend and user interface with JavaScript for this app. We will use AWS storage for video upload and retrieval.
+
+To get the flask server running follow the following commands after cloning:
+
+```
+. venv/bin/activate
+export FLASK_APP=EduFlixApp
+export FLASK_ENV=development
+flask run
+```
