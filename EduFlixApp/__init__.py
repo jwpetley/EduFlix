@@ -44,4 +44,7 @@ def create_app(test_config=None):
     from . import myvideos
     app.register_blueprint(myvideos.bp)
 
+    from . import upload
+    app.register_blueprint(upload.bp)
+
     return app
