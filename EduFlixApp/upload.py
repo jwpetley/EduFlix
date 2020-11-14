@@ -3,22 +3,24 @@ from flask import (
 )
 
 from . import S3upload
+from EduFlixApp.db import get_db
 
 bp = Blueprint('upload', __name__, url_prefix='/upload')
 
-@bp.route('/')
+@bp.route('/', methods=['GET', 'POST'])
 def upload():
     user_id = session.get('user_id')
     if request.method == 'POST':
         title = request.form['title']
         #Somehow we get S3 link run some functions to upload and retrieve S3 link
-        file = request.form['file']
+        print(request.files.keys())
+        file = request.files['file']
 
-        #upload_file(file.filename,file_path,user_id)
+        S3upload.upload_file_object(file, user_id)
         #Here we try the upload and add some if statements in case they fail
 
 
-        s3link = 'https://eduflixvid.s3.amazonaws.com/%s'%(file.filename)
+        s3link = 'https://eduflixvid.s3.amazonaws.com/%s/%s'%(user_id, file.filename)
 
         db = get_db()
         error = None
@@ -32,8 +34,10 @@ def upload():
         if error is None:
 
             db.execute(
-                'INSERT INTO video (s3link, owner_id, title) VALUES (?, ?)',(s3link, user_id, title))
+                'INSERT INTO video (s3link, owner_id, title) VALUES (?, ?, ?)',(s3link, user_id, title))
             db.commit()
+
+            return redirect(url_for('myvideos.myvideos'))
 
 
     return render_template('Upload/upload.html')
