@@ -1,0 +1,29 @@
+when host press play:
+    broadcast play:
+     socket.on("playing", (data) => {
+            socket.emit('playing')
+        });
+
+  when play broadcast: play video   /// when pause broadcast press pause
+  when host pause:
+    broadcast pause:
+    socket.on("paused", (data) => {
+        socket.emit('paused')
+    });
+
+
+
+hide play/pause:
+
+<embed src="source url" width="180" height="90" loop="false"
+autostart="true" hidden="true" id="hidecontrols"/>
+
+determine host/not?
+const param = new URLSearchParams(window.location.search)
+if (params == "?position=host"){
+    document.getElementByID("hidecontrols")
+    Element.setAttribute("hidden", "false")
+} else {
+    document.getElementByID("hidecontrols")
+        Element.setAttribute("hidden", "true")
+}
