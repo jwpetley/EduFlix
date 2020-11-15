@@ -22,7 +22,6 @@ const CONFIG_URL = `https://api.simplewebrtc.com/config/guest/${API_KEY}`;
 const store = SWRTC.createStore();
 
 const Wrapper = styled.div`
-  display: flex;
   width: 100%;
   justify-content: space-evenly;
 `
@@ -33,11 +32,20 @@ const LectureDiv = styled.div`
 `
 
 const StreamingDiv = styled.div`
-  flex: 1 1 50%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: column;
+`
+
+const StreamDiv = styled.div`
+  flex: 1 1 0;
+  margin: 1% 1% 1% 1%;
+  width: 100px;
 `
 
 const StyledStream = styled(SWRTC.Video)`
-  width: 100%;
+  object-fit: contain;
 `
 
 const StyledLectureVideo = styled.video`
@@ -56,10 +64,9 @@ class PeerVideos extends React.Component<PeerVideosProps> {
         render={({ media }) => {
           const videoStreams = media.filter(m => m.kind === 'video' && !m.remoteDisabled);
           if (videoStreams.length > 0) {
-            return <div key={peer.id}>
-              <p>Video for Peer {peer.id}</p>
+            return <StreamDiv key={peer.id}>
               <StyledStream media={videoStreams[0]}></StyledStream>
-            </div>
+            </StreamDiv>
           }
           return <h1>Can't find video for peer</h1>
         }}
@@ -138,25 +145,6 @@ const useChat = (roomId: string) => {
 
 const Chat = (props: ChatProps) => {
 
-  // constructor(props: any) {
-  //   super(props)
-  //   this.state = {message: '', messages: []}
-  //   this.sendMessage = this.sendMessage.bind(this)
-  //   this.handleChange = this.handleChange.bind(this)
-
-  // }
-
-
-  // sendMessage() {
-  //   console.log('send')
-  //   socket.emit('new_message', {message : this.state.message})
-  // }
-  
-  // handleChange(event: any) {
-  //   this.setState({message: event.target.value});
-  // }
-
-  // render() {
     const { messages, sendMessage } = useChat('roomId');
     const [newMessage, setNewMessage] = React.useState("");
     console.log(messages)
@@ -172,7 +160,8 @@ const Chat = (props: ChatProps) => {
     return <div>
       <section id="chatroom">
         <section id="feedback"></section>
-        <ol className="messages-list">
+        <h2>Messages</h2>
+        <ul className="messages-list">
           {messages.map((message, i) => (
             <li
               key={i}
@@ -180,7 +169,7 @@ const Chat = (props: ChatProps) => {
               {message.message}
             </li>
           ))}
-        </ol>
+        </ul>
       </section>
 
       <section id="input_zone">
@@ -209,7 +198,7 @@ ReactDOM.render(
           </SWRTC.Connecting>
 
           <SWRTC.Connected>
-            <h1>Connected!</h1>
+            {/* <h1>Connected!</h1> */}
             {/* Request the user's media */}
             <SWRTC.RequestUserMedia audio video auto />
 
@@ -229,14 +218,11 @@ ReactDOM.render(
                       const videos = media.filter(m => m.kind === 'video');
                       if (videos.length > 0) {
                         return (
-                          <>
-                            {videos.map(m =>
-                                <>
-                                  <p>Local Video</p>
-                                  <StyledStream key={m.id} media={m} />
-                                </>
+                          <StreamDiv>
+                            {videos.map(m =>      
+                              <StyledStream key={m.id} media={m} />
                             )}
-                          </>
+                          </StreamDiv>
                         );
                       }
                       return <h1>No Stream For Local User - is your webcam on?</h1>;
