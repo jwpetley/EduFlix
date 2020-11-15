@@ -3,4 +3,5 @@ from EduFlixApp import create_app
 application = create_app()
 
 if __name__ == "__main__":
-    application.run()
+    application.debug = True
+    application.run(host="0.0.0.0", port=80)

@@ -1,0 +1,22 @@
+ * Serving Flask app "EduFlixApp" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+Traceback (most recent call last):
+  File "application.py", line 7, in <module>
+    application.run(host="0.0.0.0", port=80)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 990, in run
+    run_simple(host, port, self, **options)
+  File "/usr/local/lib/python3.7/site-packages/werkzeug/serving.py", line 1030, in run_simple
+    s.bind(server_address)
+PermissionError: [Errno 13] Permission denied
+ * Serving Flask app "EduFlixApp" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+Traceback (most recent call last):
+  File "application.py", line 7, in <module>
+    application.run(host="0.0.0.0", port=80)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 990, in run
+    run_simple(host, port, self, **options)
+  File "/usr/local/lib/python3.7/site-packages/werkzeug/serving.py", line 1030, in run_simple
+    s.bind(server_address)
+PermissionError: [Errno 13] Permission denied
