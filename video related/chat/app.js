@@ -18,12 +18,22 @@ app.get('/', (req, res) => {
 })
 
 //Listen on port 3000
-server = app.listen(3000)
+server = app.listen(4000)
 
 
 
 //socket.io instantiation
-const io = require("socket.io")(server)
+const io = require("socket.io")(server, {
+  handlePreflightRequest: function (req, res) {
+    var headers = {
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Allow-Origin': 'http://localhost:4000',
+      'Access-Control-Allow-Credentials': true
+    };
+    res.writeHead(200, headers);
+    res.end();
+  }
+})
 
 
 //listen on every connection
@@ -41,6 +51,7 @@ io.on('connection', (socket) => {
     //listen on new_message
     socket.on('new_message', (data) => {
         //broadcast the new message
+		console.log("Got message")
         io.sockets.emit('new_message', {message : data.message, username : socket.username});
     })
 
